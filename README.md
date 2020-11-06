@@ -19,7 +19,7 @@ Options:
  Show this help message and exit
 
 ```
-#See example_input.csv for an example of how to layout the input csv file
+See example_input.csv for an example of how to layout the input csv file
 
 ## Output
 Generated data will include:
