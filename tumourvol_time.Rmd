@@ -1,6 +1,13 @@
 ---
 author: "Ellie Fewings"
 date: "03Jul2019"
+
+# Copyright (c) 2020 Eleanor Fewings
+# All rights reserved.
+#
+# This source code is licensed under the BSD-style license found in the
+# LICENSE file in the root directory of this source tree. 
+#
 ---
 
 # start_section  
@@ -33,7 +40,7 @@ library(rstatix)
 
 #Input file
 
-input <- "./JP_tumourvol_time_20200703.csv"
+input <- "./JP_tumourvol_time_f3a_20201108.csv"
 
 #Required format for input is (where each day is the change in tumour size):
 
@@ -125,7 +132,7 @@ p1 <- ggplot(sums.1, aes(time, volsum, colour=treatment, group=treatment)) +
   geom_line(aes(x=time, y=volsum, colour=treatment)) +
   facet_grid(~modelID) +
   geom_errorbar(aes(ymin=volsum-se, ymax=volsum+se), width=.1) +
-  geom_text(aes(label=ifelse(is.na(pval), "", pval)), position="stack", size=4)
+  geom_text(aes(label=ifelse(is.na(pval), "", pval)), position=position_dodge(width = 1), size=4)
 
 #Cleanup
 rm(sums.1, ttest.1)
@@ -171,7 +178,7 @@ p2 <- ggplot(sums.2, aes(time, volsum, colour=treatment, group=treatment)) +
   geom_point() +
   geom_line(aes(x=time, y=volsum, colour=treatment)) +
   geom_errorbar(aes(ymin=volsum-se, ymax=volsum+se), width=.1) +
-  geom_text(aes(label=ifelse(is.na(pval), "", pval)), position="stack", size=4)
+  geom_text(aes(label=ifelse(is.na(pval), "", pval)), position=position_dodge(width = 1), size=4)
 
 #Cleanup
 rm(sums.2, ttest.2)
@@ -244,7 +251,7 @@ p3 <- ggplot(sums.3, aes(time, volume, colour=treatment, group=treatment)) +
   geom_line(aes(x=time, y=volume, colour=treatment)) +
   facet_grid(~modelID) +
   geom_errorbar(aes(ymin=volume-se, ymax=volume+se), width=.1) +
-  geom_text(aes(label=ifelse(is.na(pval), "", pval)), position="stack", size=4)
+  geom_text(aes(label=ifelse(is.na(pval), "", pval)), position=position_dodge(width = 1), size=4)
 
 #Cleanup
 rm(all.glm, sums.vehicle, sums.3)
@@ -311,7 +318,7 @@ p4 <- ggplot(sums.4, aes(time, volume, colour=treatment, group=treatment)) +
   geom_point() +
   geom_line(aes(x=time, y=volume, colour=treatment)) +
   geom_errorbar(aes(ymin=volume-se, ymax=volume+se), width=.1) +
-  geom_text(aes(label=ifelse(is.na(pval), "", pval), position="stack", size=4))
+  geom_text(aes(label=ifelse(is.na(pval), "", pval)), position=position_dodge(width = 1), size=4)
 
 #Cleanup
 rm(all.glm, sums.vehicle, sums.4)

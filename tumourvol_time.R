@@ -5,18 +5,11 @@
 # Contact: eleanor.fewings@bioquant.uni-heidelberg.de
 #
 # ====================
-# GNU-GLPv3:
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation.
+# Copyright (c) 2020 Eleanor Fewings
+# All rights reserved.
 #
-# This program is distributed in the hope that it will be useful, but
-# WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-# General Public License for more details.
-#
-# A full copy of the GNU General Public License can be found on
-# http://www.gnu.org/licenses/.
+# This source code is licensed under the BSD-style license found in the
+# LICENSE file in the root directory of this source tree. 
 #
 # ============================================================
 # DESCRIPTION:
@@ -171,7 +164,7 @@ p1 <- ggplot(sums.1, aes(time, volsum, colour=treatment, group=treatment)) +
   geom_line(aes(x=time, y=volsum, colour=treatment)) +
   facet_grid(~modelID) +
   geom_errorbar(aes(ymin=volsum-se, ymax=volsum+se), width=.1) +
-  geom_text(aes(label=ifelse(is.na(pval), "", pval)), position="stack", size=4)
+  geom_text(aes(label=ifelse(is.na(pval), "", pval)), position=position_dodge(width = 1), size=4)
 
 #Cleanup
 rm(sums.1, ttest.1)
@@ -218,7 +211,7 @@ p2 <- ggplot(sums.2, aes(time, volsum, colour=treatment, group=treatment)) +
   geom_point() +
   geom_line(aes(x=time, y=volsum, colour=treatment)) +
   geom_errorbar(aes(ymin=volsum-se, ymax=volsum+se), width=.1) +
-  geom_text(aes(label=ifelse(is.na(pval), "", pval)), position="stack", size=4)
+  geom_text(aes(label=ifelse(is.na(pval), "", pval)), position=position_dodge(width = 1), size=4)
 
 #Cleanup
 rm(sums.2, ttest.2)
@@ -293,7 +286,7 @@ p3 <- ggplot(sums.3, aes(time, volume, colour=treatment, group=treatment)) +
   geom_line(aes(x=time, y=volume, colour=treatment)) +
   facet_grid(~modelID) +
   geom_errorbar(aes(ymin=volume-se, ymax=volume+se), width=.1) +
-  geom_text(aes(label=ifelse(is.na(pval), "", pval)), position="stack", size=4)
+  geom_text(aes(label=ifelse(is.na(pval), "", pval)), position=position_dodge(width = 1), size=4)
 
 #Cleanup
 rm(all.glm, sums.vehicle, sums.3)
@@ -361,7 +354,7 @@ p4 <- ggplot(sums.4, aes(time, volume, colour=treatment, group=treatment)) +
   geom_point() +
   geom_line(aes(x=time, y=volume, colour=treatment)) +
   geom_errorbar(aes(ymin=volume-se, ymax=volume+se), width=.1) +
-  geom_text(aes(label=ifelse(is.na(pval), "", pval), position="stack", size=4))
+  geom_text(aes(label=ifelse(is.na(pval), "", pval)), position=position_dodge(width = 1), size=4)
 
 #Cleanup
 rm(all.glm, sums.vehicle, sums.4)
